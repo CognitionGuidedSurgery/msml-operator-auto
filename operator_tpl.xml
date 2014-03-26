@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<msml:operator xmlns:msml="http://sfb125.de/msml"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://sfb125.de/msml" name="{{o.name}}">
+
+    <runtime>
+        <python module="{{o.module}}" function="{{o.name}}"/>
+    </runtime>
+
+    <input>
+        {% for p in o.input%}
+            <arg name="{{p.name}}" format="{{p.format}}" type="{{p.type}}" />
+        {%endfor%}
+    </input>
+
+    <output>
+        {% for p in o.output%}
+            <arg name="{{p.name}}" format="{{p.format}}" type="{{p.type}}" />
+        {%endfor%}
+    </output>
+
+    <parameters>
+        {% for p in o.parameters %}
+            <arg name="{{p.name}}" format="{{p.format}}" type="{{p.type}}" />
+        {%endfor%}
+    </parameters>
+</msml:operator>
+
